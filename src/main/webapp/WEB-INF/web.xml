@@ -1,0 +1,43 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee                                 http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>Tweet</servlet-name>
+    <servlet-class>org.example.PostTweet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tweet</servlet-name>
+    <url-pattern>/PostTweet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Delete</servlet-name>
+    <servlet-class>org.example.DeleteTweet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Delete</servlet-name>
+    <url-pattern>/DeleteTweet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetHomeTimeline</servlet-name>
+    <servlet-class>org.example.GetHomeTimeline</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetHomeTimeline</servlet-name>
+    <url-pattern>/GetHomeTimeline</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetUserTimeline</servlet-name>
+    <servlet-class>org.example.GetUserTimeline</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetUserTimeline</servlet-name>
+    <url-pattern>/GetUserTimeline</url-pattern>
+  </servlet-mapping>
+</web-app>
