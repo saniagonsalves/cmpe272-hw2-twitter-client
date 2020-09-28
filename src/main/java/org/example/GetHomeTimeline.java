@@ -14,11 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import twitter4j.Query;
 import twitter4j.Status;
+import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 
 public class GetHomeTimeline extends HttpServlet {
-
+	
+	private Twitter twitter;
+	public GetHomeTimeline() {
+		twitter = TwitterFactory.getSingleton();
+	}
+	
+	public GetHomeTimeline(Twitter twitter) {
+		this.twitter = twitter;
+	}
+	
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException {
@@ -26,8 +36,8 @@ public class GetHomeTimeline extends HttpServlet {
         List<Status> result = null;
 
         try {
-            result = TwitterFactory.getSingleton().getHomeTimeline();
-            System.out.println(result.toString());
+            result = twitter.getHomeTimeline();
+            //System.out.println(result.toString());
         } catch (TwitterException e) {
             e.printStackTrace();
         }
