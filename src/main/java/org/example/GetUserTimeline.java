@@ -17,7 +17,7 @@ import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
-
+// Sania Gonsalves
 public class GetUserTimeline extends HttpServlet {
 
 	private Twitter twitter;

@@ -182,7 +182,7 @@ RequestDispatcher reqdisp;
 		return resplist;
 	}
 
-		// Test for get favourite tweets
+		// Test for get favourite tweets (author Parvathi Pai)
 		@Test
 		public void testGetFavTweets() throws Exception{
 			String status1 = "{\"createdAt\" : \"Wed Sep 23 22:23:52 PDT 2020\", \"id\" :\"1309000576240410627\", \"text\":\"Hello\"}";

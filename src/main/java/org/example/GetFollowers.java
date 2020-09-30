@@ -10,13 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+//Parvathi Pai
 public class GetFollowers extends HttpServlet {
+
+    private Twitter twitter;
+    public GetFollowers() {
+        twitter = TwitterFactory.getSingleton();
+    }
+
+    public GetFollowers(Twitter twitter) {
+        this.twitter = twitter;
+    }
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws IOException, ServletException {
         ArrayList<Long> friendsid = new ArrayList<Long>();
-        Twitter twitter = new TwitterFactory().getInstance();
         long cursor = -1;
         IDs ids = null;
         System.out.println("List of Ids");
