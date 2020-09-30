@@ -40,4 +40,42 @@
     <servlet-name>GetUserTimeline</servlet-name>
     <url-pattern>/GetUserTimeline</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetFavTweets</servlet-name>
+    <servlet-class>org.example.GetFavTweets</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetFavTweets</servlet-name>
+    <url-pattern>/GetFavTweets</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetFollowers</servlet-name>
+    <servlet-class>org.example.GetFollowers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetFollowers</servlet-name>
+    <url-pattern>/GetFollowers</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>UnFollow</servlet-name>
+    <servlet-class>org.example.UnFollow</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UnFollow</servlet-name>
+    <url-pattern>/UnFollow</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SearchTweets</servlet-name>
+    <servlet-class>org.example.SearchTweets</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchTweets</servlet-name>
+    <url-pattern>/SearchTweets</url-pattern>
+  </servlet-mapping>
+
 </web-app>
