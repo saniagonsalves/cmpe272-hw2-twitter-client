@@ -3,9 +3,9 @@
 <style>
     h1 {text-align: center;}
     form {text-align: center;}
-    body{ background: #2bc0e4; /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #2bc0e4, #eaecc6); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #2bc0e4, #eaecc6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */}
+    body{ background: #2bc0e4;
+        background: -webkit-linear-gradient(to right, #2bc0e4, #eaecc6);
+        background: linear-gradient(to right, #2bc0e4, #eaecc6); }
 </style>
 <html>
 
@@ -58,13 +58,13 @@
 <form action="UnFollow" method="post">
     TweetId
     <input type="text" name="tweetId"/>
-    <input type="submit" value="un-follow User"/>
+    <input type="submit" value="un-follow user"/>
 </form>
 <br><br>
 <form action="SearchTweets" method="post">
     TweetId
     <input type="text" name="tweetId"/>
-    <input type="submit" value="search tweets by Id"/>
+    <input type="submit" value="search tweets by id"/>
 </form>
 
 </body>

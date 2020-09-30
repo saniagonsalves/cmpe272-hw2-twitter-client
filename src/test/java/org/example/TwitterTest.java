@@ -4,7 +4,9 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import org.junit.runner.RunWith;
+
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.easymock.EasyMock;
 import org.junit.Before;
@@ -14,17 +16,14 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.powermock.api.mockito.PowerMockito;
 
-import twitter4j.ResponseList;
-import twitter4j.Status;
-import twitter4j.Twitter;
-import twitter4j.TwitterFactory;
-import twitter4j.TwitterObjectFactory;
-import twitter4j.TwitterException;
+import twitter4j.*;
+
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -182,7 +181,26 @@ RequestDispatcher reqdisp;
 		EasyMock.replay(resplist);
 		return resplist;
 	}
-	
-	
+
+		// Test for get favourite tweets
+		@Test
+		public void testGetFavTweets() throws Exception{
+			String status1 = "{\"createdAt\" : \"Wed Sep 23 22:23:52 PDT 2020\", \"id\" :\"1309000576240410627\", \"text\":\"Hello\"}";
+			String status2 = "{\"createdAt\" : \"Thu Sep 24 14:31:16 PDT 2020\", \"id\" :\"1309244033835835392\", \"text\":\"Hi\"}";
+			String status3 = "{\"createdAt\" : \"Thu Sep 24 15:25:00 PDT 2020\", \"id\" :\"1309257555475005440\", \"text\":\"United Airlines will begin offering COVID-19 rapid testing for passengers flying from SFO to Hawaii next month. https://t.co/GFlD2FRRpS\"}";
+			TwitterFactory mockfac = Mockito.mock(TwitterFactory.class);
+			PowerMockito.whenNew(TwitterFactory.class).withNoArguments().thenReturn(mockfac);
+
+			Twitter mockTwit = mock(Twitter.class);
+			when(mockTwit.getFavorites()).thenReturn(userTimelineResponseList(Arrays.asList(status1, status2, status3)));
+
+			when(request.getRequestDispatcher("getFavTweets.jsp")).thenReturn(reqdisp);
+
+			new GetFavTweets(mockTwit).doPost(request, response);
+
+			verify(reqdisp).include(request, response);
+			verify(response, times(1)).setHeader("tweetStr", "Hello 1309000576240410627\nHi 1309244033835835392\nUnited Airlines will begin offering COVID-19 rapid testing for passengers flying from SFO to Hawaii next month. https://t.co/GFlD2FRRpS 1309257555475005440\n");
+		}
+
 }
 

@@ -1,6 +1,7 @@
 package org.example;
 
 import twitter4j.Status;
+import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 
@@ -13,6 +14,14 @@ import java.io.IOException;
 import java.util.List;
 
 public class GetFavTweets extends HttpServlet {
+    private Twitter twitter;
+    public GetFavTweets() {
+        twitter = TwitterFactory.getSingleton();
+    }
+
+    public GetFavTweets(Twitter twitter) {
+        this.twitter = twitter;
+    }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -20,7 +29,7 @@ public class GetFavTweets extends HttpServlet {
         List<Status> result = null;
 
         try {
-            result = TwitterFactory.getSingleton().getFavorites();
+            result = twitter.getFavorites();
             System.out.println(result.toString());
         } catch (TwitterException e) {
             e.printStackTrace();
